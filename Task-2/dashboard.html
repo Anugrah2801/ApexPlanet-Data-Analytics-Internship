@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #1f2937;
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 28px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        .header p {
+            margin: 4px 0;
+            opacity: 0.9;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .kpi {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .kpi h3 {
+            margin: 0 0 12px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .kpi p {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-card h2 {
+            margin: 0 0 20px;
+            font-size: 19px;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 14px 0;
+        }
+
+        .bar-label {
+            width: 90px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 22px;
+            background: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            background: #2563eb;
+            border-radius: 6px;
+        }
+
+        .bar-value {
+            width: 105px;
+            text-align: right;
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .insights {
+            margin-top: 24px;
+            background: white;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .insights h2 {
+            margin-top: 0;
+        }
+
+        .insights li {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+
+            .kpi-grid,
+            .charts {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .dashboard {
+                padding: 15px;
+            }
+
+            .kpi-grid,
+            .charts {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <div class="header">
+            <h1>Sales Analysis Dashboard</h1>
+            <p>ApexPlanet Internship — Task 2</p>
+            <p>Static dashboard mock-up based on the cleaned sales dataset</p>
+        </div>
+
+        <!-- KPI Cards -->
+
+        <div class="kpi-grid">
+
+            <div class="kpi">
+                <h3>Total Sales</h3>
+                <p>₹13.94 Cr</p>
+            </div>
+
+            <div class="kpi">
+                <h3>Total Records</h3>
+                <p>1,000</p>
+            </div>
+
+            <div class="kpi">
+                <h3>Total Quantity</h3>
+                <p>5,435</p>
+            </div>
+
+            <div class="kpi">
+                <h3>Average Sales per Record</h3>
+                <p>₹1.39 L</p>
+            </div>
+
+        </div>
+
+        <div class="charts">
+
+            <!-- Category-wise Sales -->
+
+            <div class="chart-card">
+                <h2>Category-wise Sales</h2>
+
+                <div class="bar-row">
+                    <div class="bar-label">Electronics</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:100%"></div>
+                    </div>
+                    <div class="bar-value">₹5.08 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Education</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:49.3%"></div>
+                    </div>
+                    <div class="bar-value">₹2.50 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Grocery</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:43.8%"></div>
+                    </div>
+                    <div class="bar-value">₹2.22 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Furniture</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:42.4%"></div>
+                    </div>
+                    <div class="bar-value">₹2.15 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Fashion</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:39.1%"></div>
+                    </div>
+                    <div class="bar-value">₹1.98 Cr</div>
+                </div>
+            </div>
+
+            <!-- Top Cities -->
+
+            <div class="chart-card">
+                <h2>Top Cities by Sales</h2>
+
+                <div class="bar-row">
+                    <div class="bar-label">Patna</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:100%"></div>
+                    </div>
+                    <div class="bar-value">₹2.08 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Kolkata</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:90.7%"></div>
+                    </div>
+                    <div class="bar-value">₹1.89 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Bengaluru</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:90.1%"></div>
+                    </div>
+                    <div class="bar-value">₹1.88 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Mumbai</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:90.1%"></div>
+                    </div>
+                    <div class="bar-value">₹1.88 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Hyderabad</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:82.4%"></div>
+                    </div>
+                    <div class="bar-value">₹1.72 Cr</div>
+                </div>
+            </div>
+
+            <!-- Top 5 Products -->
+
+            <div class="chart-card">
+                <h2>Top 5 Products by Sales</h2>
+
+                <div class="bar-row">
+                    <div class="bar-label">Laptop</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:100%"></div>
+                    </div>
+                    <div class="bar-value">₹2.54 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Mobile</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:99.6%"></div>
+                    </div>
+                    <div class="bar-value">₹2.53 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Book</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:98.3%"></div>
+                    </div>
+                    <div class="bar-value">₹2.50 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Rice</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:87.5%"></div>
+                    </div>
+                    <div class="bar-value">₹2.22 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Chair</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:84.5%"></div>
+                    </div>
+                    <div class="bar-value">₹2.15 Cr</div>
+                </div>
+            </div>
+
+            <!-- Monthly Sales Trend -->
+
+            <div class="chart-card">
+                <h2>Monthly Sales Trend</h2>
+
+                <div class="bar-row">
+                    <div class="bar-label">Jan 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:77.3%"></div>
+                    </div>
+                    <div class="bar-value">₹1.01 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Feb 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:88.1%"></div>
+                    </div>
+                    <div class="bar-value">₹1.15 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Mar 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:100%"></div>
+                    </div>
+                    <div class="bar-value">₹1.31 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Apr 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:93.6%"></div>
+                    </div>
+                    <div class="bar-value">₹1.22 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">May 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:84.1%"></div>
+                    </div>
+                    <div class="bar-value">₹1.10 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Jun 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:98.9%"></div>
+                    </div>
+                    <div class="bar-value">₹1.29 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Jul 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:89.9%"></div>
+                    </div>
+                    <div class="bar-value">₹1.17 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Aug 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:72.4%"></div>
+                    </div>
+                    <div class="bar-value">₹0.94 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Sep 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:70.3%"></div>
+                    </div>
+                    <div class="bar-value">₹0.92 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Oct 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:95.7%"></div>
+                    </div>
+                    <div class="bar-value">₹1.25 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Nov 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:96.7%"></div>
+                    </div>
+                    <div class="bar-value">₹1.26 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Dec 2025</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:94.2%"></div>
+                    </div>
+                    <div class="bar-value">₹1.23 Cr</div>
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar-label">Jan 2026</div>
+                    <div class="bar-container">
+                        <div class="bar" style="width:6.2%"></div>
+                    </div>
+                    <div class="bar-value">₹0.08 Cr</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Key Findings -->
+
+        <div class="insights">
+            <h2>Key Business Findings</h2>
+
+            <ul>
+                <li>Electronics generated the highest category-wise sales.</li>
+                <li>Laptop recorded the highest sales among the top 5 products.</li>
+                <li>Patna recorded the highest sales among the displayed cities.</li>
+                <li>March 2025 was the strongest month in the displayed period.</li>
+                <li>Quantity and Unit Price show positive relationships with Total Sales.</li>
+                <li>Age has almost no relationship with Total Sales.</li>
+            </ul>
+        </div>
+
+        <!-- Conclusion -->
+
+        <div class="insights">
+            <h2>Dashboard Conclusion</h2>
+
+            <p>
+                Sales performance is more closely associated with product quantity
+                and unit price than with customer age. Electronics is the leading
+                category, Laptop is the highest-selling product among the top five,
+                and Patna is the highest-performing city among the displayed cities.
+            </p>
+        </div>
+
+        <div class="footer">
+            ApexPlanet Data Analytics Internship | Task 2
+        </div>
+
+    </div>
+
+</body>
+
+</html>
